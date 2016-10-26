@@ -33,7 +33,7 @@ public class Pong extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 racquet.keyPressed(e);
-                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                if(e.getKeyCode() == KeyEvent.VK_ENTER){        //press ENTER key to start the game
                     gameStarted = true;
                 }
             }
@@ -52,7 +52,7 @@ public class Pong extends JPanel {
             @Override
             public void keyPressed(KeyEvent m) {
                 racquet2.keyPressed(m);
-                if(m.getKeyCode() == KeyEvent.VK_ENTER){
+                if(m.getKeyCode() == KeyEvent.VK_ENTER){        //not sure if I should also do the same here
                     gameStarted = true;
                 }
             }
@@ -90,14 +90,14 @@ public class Pong extends JPanel {
         g2d.drawString(String.valueOf(racquet.getScore()), 10, 300);
         g2d.drawString(String.valueOf(racquet2.getScore()), 10, 70);
 
-        if(!gameStarted){
+        if(!gameStarted){       //prompts a dialogue that requests the user to press ENTER key firrst to start the game
             g2d.setColor(Color.LIGHT_GRAY);
             g2d.drawString("Pong", 110, 160);
             g2d.drawString("Press Enter...", 70, 200);
         }
     }
 
-    public void nextRound(){
+    public void nextRound(){        //restarts the game(sets the ball back to its original position) without changing the scores back to zero
         Sound.NEXTROUND.play();
         JOptionPane.showMessageDialog(this, "Next Round!");
         ball.x = 0;
@@ -107,7 +107,7 @@ public class Pong extends JPanel {
         speed = 1;
     }
 
-    public void gameOver(){
+    public void gameOver(){     //gives option to users to start a new game or exit from the program
         int choice;
         if(p1score > p2score){
             choice = JOptionPane.showConfirmDialog(null, "Player 1 won!" + "\nRestart?", "Game Over", JOptionPane.YES_NO_OPTION);
