@@ -45,7 +45,7 @@ public class Racquet2 {
         return new Rectangle(x, Y, WIDTH, HEIGHT);
     }
 
-    public int getTopY() {
+    public int getTopY() {      //opposite for geyTopY of class Racquet
         return Y + HEIGHT;
     }
 
